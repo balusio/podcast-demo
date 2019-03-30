@@ -22,7 +22,14 @@
 	"rules":{
 		"react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
-
+	},
+	"plugins": [
+		"react"
+	],
+	"settings": {
+		"react":{
+			"version": "detect"
+		}
 	}
 
 }
