@@ -1,0 +1,28 @@
+{
+
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"env": {
+		"browser": true,
+		"es6": true,
+		"amd": true,
+		"commonjs": false,
+		"node": true
+	},
+	"parser": "babel-eslint",
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended"
+	],
+	"rules":{
+		"react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+
+	}
+
+}
