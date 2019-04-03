@@ -17,3 +17,6 @@ be user have NVM installed.
 Install the dependencies
 run `npm run start` for development
 run `npm run build:prod` for export production build
+
+
+Icons thanks to : (Vectors Market)[https://www.flaticon.com/authors/vectors-market]

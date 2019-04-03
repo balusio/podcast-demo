@@ -1,0 +1,14 @@
+.col-podcast{
+  width: 25%;
+  max-width: 25%;
+  cursor: pointer;
+  p{
+    word-break: break-all;
+    text-align: center;
+    font-weight: 300;
+  }
+  img{
+    display:block;
+    margin: 10px auto;
+  }
+}

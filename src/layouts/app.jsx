@@ -1,20 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import SearchLayout from '../layouts/search-result/search-layout.jsx';
-
+import PodcastView from '../layouts/podcast-view/podcast-view.jsx';
 function App() {
   return (  
+    <Router>
     <div className="container">
       <nav className="row aligner aligner--contentStart p-medium border-bottom">
-        <a href="/">
+        <Link to="/">
           <h1>PodCaster</h1>
-        </a>
+        </Link>
       </nav>
-
-      <Router>
-        <Route path="/" component={SearchLayout} />
-      </Router>
+        <Route exact path="/" component={SearchLayout} />
+        <Route exact path="/podcast/:podcastId" component={PodcastView} />
     </div>
+    </Router>
   );
 }
 

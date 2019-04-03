@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './podcast-summary.scss';
 import PropTypes from 'prop-types';
+import {Link} from "react-router-dom";
 class ComponentSummary extends Component {
   constructor() {
     super();
@@ -12,11 +13,12 @@ class ComponentSummary extends Component {
   render() {
 
     return(
-      <div className="container">
-        <div className="wrapper">
-         
+      <Link to={`/podcast/${this.props.podcastElement.id}`} className="col-sm-3">
+        <div>
+          <img className="rounded" src={this.props.podcastElement.image} alt={this.props.podcastElement.name}  />
+          <p>{this.props.podcastElement.name}</p>
         </div>
-      </div>
+      </Link>
     );
   }
 }
