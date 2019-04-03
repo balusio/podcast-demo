@@ -1,14 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import SearchLayout from '../layouts/search-result/search-layout.jsx';
+
 function App() {
   return (  
     <div className="container">
-      <nav className="row aligner aligner--contentStart">
-        <Link to="/">
+      <nav className="row aligner aligner--contentStart p-medium border-bottom">
+        <a href="/">
           <h1>PodCaster</h1>
-        </Link>
+        </a>
       </nav>
+
       <Router>
         <Route path="/" component={SearchLayout} />
       </Router>
@@ -16,4 +18,5 @@ function App() {
   );
 }
 
-export default App;
+
+export default App
