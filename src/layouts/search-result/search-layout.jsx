@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {searchPodcastList,filterPodcastResult, searchPodcastResults} from '../../redux/actions.js';
+import {searchPodcastList,filterPodcastResult} from '../../redux/actions.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './search-layout.scss';
@@ -42,6 +42,7 @@ class SearchLayout extends Component {
     });
   } 
   executeFilterSearch(){
+    // check if the input string is contained on the element searched
     const searchFiltered = this.searchResultList.filter((element) => {
       if(element.name.toLowerCase().includes(this.state.searchInput.toLowerCase())) {
         return element;
@@ -56,14 +57,18 @@ class SearchLayout extends Component {
       })
     }
     
-    //this.props.searchPodcastResults(this.state.searchInput);
+    
   }
+   
   updateSearchValue(stringValue){
+    // uploading the internal state of the component the render method update the search array filtered on the input on the callback state method 'executeFilterSearch'
     this.setState({ searchInput:  stringValue},this.executeFilterSearch);
-    //console.log(e.target.value);
+    
   }
+  // this is the handler for the search input
   getSearchValue(e){
     const searchString = e.target.value;
+    // if strings is just space set intial search state
     if(!searchString.replace(/\s/g,'').length){
       this.setState({
         PodcastToRender: this.searchResultList,
@@ -71,7 +76,6 @@ class SearchLayout extends Component {
       });
       return false;
     }
-
     if(this.state.searchInput !== '' && searchString.length > 2 || searchString.length > 2 && searchString !== this.state.searchInput) {
       this.updateSearchValue(searchString);
     } else{
@@ -81,7 +85,7 @@ class SearchLayout extends Component {
         })
     }
   }
-
+  // Method for search warning and no results
   renderWarning(){
     return(
       <div className="row">
@@ -93,7 +97,6 @@ class SearchLayout extends Component {
   render() {
 
     return(
-
       <div className="wrapper">
         <div className="row border-bottom  mb-medium aligner aligner--contentEnd">
           <div className="input input-withIcon m-medium">
@@ -115,10 +118,7 @@ class SearchLayout extends Component {
                   <ComponentSummary key={index} podcastElement={podcastElementFiltered}/>
                 );
               })
-          }
-           
-          
-          
+          }          
         </div>
       </div>
     
@@ -129,7 +129,6 @@ class SearchLayout extends Component {
 SearchLayout.propTypes ={
   searchPodcastList : PropTypes.func.isRequired,
   filterPodcastResult: PropTypes.func.isRequired,
-  searchPodcastResults: PropTypes.func.isRequired,
   searchResults: PropTypes.array
 }
 
@@ -139,4 +138,4 @@ const mapStateToProps = (state) => ({
 
 
 
-export default connect(mapStateToProps,{searchPodcastList, filterPodcastResult,searchPodcastResults})(SearchLayout);
+export default connect(mapStateToProps,{searchPodcastList, filterPodcastResult})(SearchLayout);

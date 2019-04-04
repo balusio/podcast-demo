@@ -7,14 +7,16 @@ const initialState = {
   detailedPodcast: {
     isFetching: false,
     data: {
-      index: '',  
       id: 0,
+      index: '',  
       name: '',
       artist: '',
       image: '',
-      description: ''
+      description: '',
+      items:[]
     }
-  }
+  },
+
 }
 
 const reducerSearch = (state = initialState.generalResults, action) => {
@@ -36,19 +38,34 @@ const reducerSearch = (state = initialState.generalResults, action) => {
 
 const podcastDetail = (state = initialState.detailedPodcast, action) =>{
   switch (action.type) {
-    case 'DETAIL_FETCH_FILTER': {
-     return {...state, isFetching: action.payload};
+    case 'PD_SEARCH': {
+      return {...state, isFetching: action.payload};
     }
-    case 'GET_DETAIL_PODCAST': {
+    case 'GET_PODCAST_DETAIL': {
       return {...state, data: action.payload};
     }
+
+
     default:
      return initialState.detailedPodcast
   }
 }
+
+const itemsPodcast = (state = initialState.itemsPodcast, action) =>{
+  switch(action.type){
+    case 'SET_PODCAST_ITEMS': {
+      console.log('LLEGUE');
+      return {...state, itemsPodcast: action.payload};
+    }
+    default:
+     return initialState.itemsPodcast
+  }
+};
+
 const rootReducer = combineReducers({
   generalResults: reducerSearch,
-  detailedPodcast : podcastDetail
+  detailedPodcast : podcastDetail,
+  itemsPodcast : itemsPodcast
 })
 
 export default rootReducer;
