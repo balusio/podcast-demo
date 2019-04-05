@@ -16,7 +16,10 @@ This is a podcast demo
 be user have NVM installed.
 Install the dependencies
 run `npm run start` for development
-run `npm run build:prod` for export production build
+
+
+## Production ##
+run `npm run build:prod` for export production build you can start the server on the `index.js` file that serves the public folder
 
 
 Icons thanks to : (Vectors Market)[https://www.flaticon.com/authors/vectors-market]

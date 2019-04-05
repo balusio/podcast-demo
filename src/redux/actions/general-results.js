@@ -9,9 +9,13 @@ export const searchPodcastList = () => dispatch => {
       type: START_SEARCH,
       payload: true
     })
-    
-    axios.get('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json')
+    let date = new Date();
+    date.setDate(date.getDate() - 1);
+    axios.get('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json',{
+      'If-Modified-Since' : date
+    })
     .then(data => {
+      window.localStorage.setItem('generalResult', data.data.feed.entry)
       dispatch({
         type: SEARCH_PODCASTS_LIST,
         payload: data.data.feed.entry
