@@ -4,7 +4,7 @@ This is a podcast demo
 * [nvm](https://github.com/creationix/nvm) to lock node version  
 * WebPack
   * Webpack dev server
-
+  * TerserPlugin
 * react
 * Babel
 * scss
@@ -14,8 +14,23 @@ This is a podcast demo
 ## Install ##
 
 be user have NVM installed.
-Install the dependencies
+Install the dependencies with `npm install`
 run `npm run start` for development
+
+## Application structure ##
+Components structure: 
+* Layouts (Handle redux comunications)
+  * components (Read data from Redux state)
+
+Redux structure:
+* generalResults   -> general-results action -> 
+  * dispatch : filterPodcastResult searchPodcastList(map and order the api response)
+* detailedPodcast  -> podcast-detail action -> 
+  * dispatch : getPodcastDetail(filter the state selected podcast), 
+* podcastItems     -> podcast-items action ->
+  * dispatch : fetchPodcastItems 
+* podcastEpisode   -> podcast-episode action ->
+  * dispatch : fetchPodcastEpisode 
 
 
 ## Production ##
