@@ -12,7 +12,8 @@ function App() {
         </Link>
       </nav>
         <Route exact path="/" component={SearchLayout} />
-        <Route exact path="/podcast/:podcastId" component={PodcastView} />
+        <Route  path="/podcast/:podcastId" component={PodcastView} />
+        
     </div>
     </Router>
   );

@@ -1,0 +1,12 @@
+.podcast-list{
+  tr{
+    &:nth-child(even) {
+      background: #ffffff
+    }
+    &:nth-child(odd) {
+      background: #cccccc
+    }
+    cursor: pointer;
+  }
+
+}

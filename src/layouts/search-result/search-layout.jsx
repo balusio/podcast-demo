@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {searchPodcastList,filterPodcastResult} from '../../redux/actions.js';
+import {searchPodcastList,filterPodcastResult} from '../../redux/actions/general-results.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './search-layout.scss';
@@ -29,7 +29,6 @@ class SearchLayout extends Component {
         image: (podcast['im:image'].length >= 3) ? podcast['im:image'][2].label: podcast['im:image'][0].label,
         description: (podcast.hasOwnProperty('summary')) ? podcast.summary.label : ''
       }
-      // this.searchResultList.push(<ComponentSummary key={index} podcastElement={podcastElementFiltered}/>)
       return podcastElementFiltered;
     });
     this.setState({PodcastToRender: this.searchResultList});
